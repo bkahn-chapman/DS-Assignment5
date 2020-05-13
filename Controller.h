@@ -18,4 +18,8 @@ public:
   void printFacultyID(int val);
   void printAdvisorOfStudent(int val);
   void printStudentsOfAdvisor(int val);
+  void deleteStudent(int val);
+  void deleteFaculty(int val);
+  void changeAdvisor(int studID, int facID);
+  void removeAdvisee(int facID, int studID);
 };

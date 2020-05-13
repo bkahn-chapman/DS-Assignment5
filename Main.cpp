@@ -10,6 +10,8 @@ int main(int argc, char **argv)
   Controller *c = new Controller();
   bool quitCheck = false;
   int input = 0;
+  int input2 = 0;
+
   while(!quitCheck)
   {
     int numChoice = 0;
@@ -22,13 +24,16 @@ int main(int argc, char **argv)
     cout << "6. View Faculty by Id number" << endl;
     cout << "7. Advisor information with student ID" << endl;
     cout << "8. Advisee's with Faculty ID" << endl;
+    cout << "9. Delete Student with ID" << endl;
+    cout << "10. Delete Faculty with ID" << endl;
+    cout << "11. Change a students advisor" << endl;
+    cout << "12. Remove advisee from an advisor" << endl;
     cout << "14. Quit the program." << endl;
     cin >> numChoice;
     switch(numChoice)
     {
       case 1:
         cout << endl;
-        cout << "derrr" << endl;
         c->addStudent();
         cout << endl;
         break;
@@ -72,6 +77,35 @@ int main(int argc, char **argv)
         cin >> input;
         cout << endl;
         c->printStudentsOfAdvisor(input);
+        break;
+      case 9:
+        cout << "What is the ID of the student: ";
+        cin >> input;
+        cout << endl;
+        c->deleteStudent(input);
+        break;
+      case 10:
+        cout << "What is the ID of the faculty: ";
+        cin >> input;
+        cout << endl;
+        c->deleteFaculty(input);
+        break;
+      case 11:
+        cout << "What is the id of the student: ";
+        cin >> input;
+        cout << endl;
+        cout << "What is the id of the new advisor: ";
+        cin >> input2;
+        c->changeAdvisor(input, input2);
+        cout << "The students advisor has been changed" << endl;
+        break;
+      case 12:
+        cout << "What is the ID of the faculty member: ";
+        cin >> input;
+        cout << "What is the ID of the Advisee to be removed: ";
+        cin >> input2;
+        c->removeAdvisee(input, input2);
+        cout << "The advisee has been removed" << endl;
         break;
       case 14:
         cout << endl;

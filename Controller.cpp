@@ -172,3 +172,62 @@ void Controller::printStudentsOfAdvisor(int val)
     cout << "This Faculty doesn't exist" << endl;
   }
 }
+
+void Controller::deleteStudent(int val)
+{
+  if(studentList.searchNode(val))
+  {
+    studentList.deleteNode(val);
+    cout << "Student has been deleted" << endl;
+  }
+  else
+  {
+    cout << "That student doesn't exist " << endl;
+  }
+}
+
+void Controller::deleteFaculty(int val)
+{
+  if(facultyList.searchNode(val))
+  {
+    facultyList.deleteNode(val);
+    cout << "Student has been deleted" << endl;
+  }
+  else
+  {
+    cout << "That faculty member doesn't exist " << endl;
+  }
+}
+
+void Controller::changeAdvisor(int studID, int facID)
+{
+  if(studentList.searchNode(studID))
+  {
+    studentList.returnData(studID)->data.setadvisor(facID);
+  }
+  else
+  {
+    cout << "that student ID does not exist" << endl;
+  }
+}
+void Controller::removeAdvisee(int facID, int studID)
+{
+  int value = 0;
+  if(facultyList.searchNode(facID))
+  {
+    value = facultyList.returnData(facID)->data.advisees->search(studID);
+    cout << value << endl;
+    if(value != 0)
+    {
+      facultyList.returnData(facID)->data.advisees->removeAtPos(value);
+    }
+    else
+    {
+      cout << "Student ID is not correct" << endl;
+    }
+  }
+  else
+  {
+    cout << "Faculty ID is incorrect" << endl;
+  }
+}
