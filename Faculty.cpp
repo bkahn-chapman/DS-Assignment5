@@ -63,7 +63,7 @@ void Faculty::printFaculty()
   cout << "Faculty ID: " << id << endl;
   cout << "Faculty level: " << level << endl;
   cout << "Faculty department: " << department << endl;
-  cout << "List of advisees" << endl;
+  cout << "List of Advisee's ID numbers: " << endl;
   advisees->printList();
   cout << endl;
 }

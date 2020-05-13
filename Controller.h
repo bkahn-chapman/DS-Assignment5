@@ -16,4 +16,6 @@ public:
   void printFacultyTree(TreeNode<Faculty> *n);
   void printStudentID(int val);
   void printFacultyID(int val);
+  void printAdvisorOfStudent(int val);
+  void printStudentsOfAdvisor(int val);
 };

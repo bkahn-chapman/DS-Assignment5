@@ -138,3 +138,37 @@ void Controller::printFacultyID(int val)
     cout << "no faculty matches this ID" << endl;
   }
 }
+
+void Controller::printAdvisorOfStudent(int val)
+{
+  if(studentList.searchNode(val))
+  {
+    printFacultyID(studentList.returnData(val)->data.getadvisor());
+  }
+  else
+  {
+    cout << "This student does not have an advisor" << endl;
+  }
+}
+
+void Controller::printStudentsOfAdvisor(int val)
+{
+  if(facultyList.searchNode(val))
+  {
+    Faculty f = facultyList.returnData(val)->data;
+    DoublyLinkedList<int> *temp = new DoublyLinkedList<int>();
+    int number;
+    while(!f.advisees->isEmpty())
+    {
+      number = f.advisees->removeFront();
+      printStudentID(number);
+      temp->insertBack(number);
+    }
+    f.advisees = temp;
+    delete temp;
+  }
+  else
+  {
+    cout << "This Faculty doesn't exist" << endl;
+  }
+}
