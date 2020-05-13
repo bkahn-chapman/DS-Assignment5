@@ -7,7 +7,7 @@ class Controller
 {
 public:
   BST<Student> studentList;
-  BST<Faculty> FacultyList;
+  BST<Faculty> facultyList;
   Controller();
   ~Controller();
   void addStudent();

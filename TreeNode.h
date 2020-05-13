@@ -1,13 +1,17 @@
 #include <iostream>
 
+using namespace std;
+
+template <class T>
 class TreeNode
 {
+public:
   TreeNode();
   TreeNode(T d, int key);
   //TreeNode(int k, <type> value)
   ~TreeNode();
   //when working with template classes
-  virtual ~TreeNode();
+  // virtual ~TreeNode();
 
   int key;
   T data;

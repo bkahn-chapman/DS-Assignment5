@@ -1,34 +1,9 @@
-class TreeNode
-{
-  TreeNode();
-  TreeNode(int key);
-  //TreeNode(int k, <type> value)
-  ~TreeNode();
-  //when working with template classes
-  virtual ~TreeNode();
-
-  int key;
-  TreeNode *left;
-  TreeNode *right;
-};
-
-//treenode implementation
-TreeNode::TreeNode()
-{
-  left = NULL;
-  right = NULL;
-}
-
-TreeNode::TreeNode(int key)
-{
-  key = k;
-  left = NULL;
-  right = NULL;
-}
-
-//do implementation of destructor on own
-#include "TreeNode.h"
 #include <iostream>
+#include "TreeNode.h"
+#include "Faculty.h"
+#include "Student.h"
+
+using namespace std;
 
 template <class T>
 class BST
@@ -36,6 +11,7 @@ class BST
   public:
     BST();
     ~BST();
+    int size = 0;
     //virtual ~BST() -when working with template classes
 
     void insert(TreeNode<T> *node); //which in this example is also our key
@@ -77,7 +53,7 @@ void BST<T>::printTree(TreeNode<T> *node)
 }
 
 template <class T>
-TreeNode<T>* BST::getMax()
+TreeNode<T>* BST<T>::getMax()
 {
   TreeNode<T> *curr = root; //start at the root
   if(root == NULL)
@@ -113,9 +89,9 @@ bool BST<T>::isEmpty()
 }
 
 template <class T>
-void BST<T>::insert(int value)
+void BST<T>::insert(TreeNode<T> *node)
 {
-  TreeNode<T> *node = new TreeNode(value); //value is also the key
+
   if(root == NULL)
   {
     //we have an empty tree
@@ -128,9 +104,9 @@ void BST<T>::insert(int value)
     TreeNode<T> *parent; //empty Node
     while(true)
     {
-      .//find the insertion point
+      //find the insertion point
       parent = curr;
-      if(value < curr->key)
+      if(node->key < curr->key)
       {
         //go left
         curr = curr->left;
@@ -153,6 +129,7 @@ void BST<T>::insert(int value)
       }
     }
   }
+  size++;
 }
 
 template <class T>
@@ -192,7 +169,7 @@ bool BST<T>::deleteNode(int k)
   {
     return false;
   }
-  else if(!search(k))
+  else if(!searchNode(k))
   {
     return false;
   }
@@ -219,6 +196,7 @@ bool BST<T>::deleteNode(int k)
     {
       return false;
     }
+  }
     //if we made here, then we've found the node now let's proceed to deleteNode
     //no children, leaf TreeNode
     if(current->left == NULL && current->right == NULL)
@@ -289,7 +267,7 @@ bool BST<T>::deleteNode(int k)
       successor->left = current->left;
       return true;
     }
-  }
+  size--;
 }
 
 template <class T>
