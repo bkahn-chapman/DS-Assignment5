@@ -62,12 +62,14 @@ void Controller::addFaculty()
   cin >> adviseeCount;
   Faculty *newFaculty = new Faculty(name, id, level, department);
   TreeNode<Faculty> *newFacultyNode = new TreeNode<Faculty>(*newFaculty, id);
+  int count = 1;
   for(int i = 0; i < adviseeCount; ++i)
   {
     int adviseeID;
-    cout << "Enter advisee ID number " << i << ": " << endl;
+    cout << "Enter advisee ID number " << count << ": " << endl;
     cin >> adviseeID;
     newFacultyNode->data.advisees->insertBack(adviseeID);
+    count++;
   }
   facultyList.insert(newFacultyNode);
   cout << "Faculty added" << endl;
@@ -110,5 +112,29 @@ void Controller::printFacultyTree(TreeNode<Faculty> *n)
   else
   {
     cout << "Tree is Empty" << endl;
+  }
+}
+
+void Controller::printStudentID(int val)
+{
+  if(studentList.searchNode(val))
+  {
+    studentList.returnData(val)->data.printStudent();
+  }
+  else
+  {
+    cout << "no student matches this ID" << endl;
+  }
+}
+
+void Controller::printFacultyID(int val)
+{
+  if(facultyList.searchNode(val))
+  {
+    facultyList.returnData(val)->data.printFaculty();
+  }
+  else
+  {
+    cout << "no faculty matches this ID" << endl;
   }
 }

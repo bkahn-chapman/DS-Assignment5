@@ -24,6 +24,7 @@ class BST
 
     TreeNode<T>* getSuccessor(TreeNode<T> *d);
     void printTree(TreeNode<T> *node);
+    TreeNode<T>* returnData(int val);
 
     TreeNode<T> *root;
 };
@@ -289,4 +290,29 @@ TreeNode<T>* BST<T>::getSuccessor(TreeNode<T> *d)
     successor->right = d->right;
   }
   return successor;
+}
+
+template <class T>
+TreeNode<T>* BST<T>::returnData(int val)
+{
+  if(searchNode(val))
+  {
+    TreeNode<T> *curr = root;
+    while(curr->key != val)
+    {
+      if(val < curr->key)
+      {
+        curr = curr->left;
+      }
+      else
+      {
+        curr = curr->right;
+      }
+    }
+    return curr;
+  }
+  else
+  {
+    cout << "this node does not exist" << endl;
+  }
 }
