@@ -57,4 +57,13 @@ void Faculty::setdep(string dep)
   department = dep;
 }
 
-//printFaculty
+void Faculty::printFaculty()
+{
+  cout << "Faculty name: " << name << endl;
+  cout << "Faculty ID: " << id << endl;
+  cout << "Faculty level: " << level << endl;
+  cout << "Faculty department: " << department << endl;
+  cout << "List of advisees" << endl;
+  advisees->printList();
+  cout << endl;
+}

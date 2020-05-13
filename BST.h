@@ -115,16 +115,16 @@ void BST<T>::insert(TreeNode<T> *node)
           parent->left = node;
           break;
         }
-        else
-        {
+      }
+      else
+      {
           //go right
-          curr = curr->right;
-          if(curr == NULL)
-          {
+        curr = curr->right;
+        if(curr == NULL)
+        {
             //we found the nodes home
-            parent->right = node;
-            break;
-          }
+          parent->right = node;
+          break;
         }
       }
     }

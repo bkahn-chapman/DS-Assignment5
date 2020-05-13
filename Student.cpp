@@ -105,4 +105,13 @@ void Student::setadvisor(int advisorIn)
 {
   advisor = advisorIn;
 }
-//printStudents
+void Student::printStudent()
+{
+  cout << "Student name: " << name << endl;
+  cout << "Student ID: " << id << endl;
+  cout << "Student level: " << level << endl;
+  cout << "Student major: " << major << endl;
+  cout << "Student gpa: " << gpa << endl;
+  cout << "Student advisor: " << advisor << endl;
+  cout << endl;
+}

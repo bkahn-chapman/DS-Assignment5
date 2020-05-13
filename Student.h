@@ -33,6 +33,5 @@ class Student
     void setgpa(double gpa);
     int getadvisor();
     void setadvisor(int advisor);
-
-    //printStudents
+    void printStudent();
 };

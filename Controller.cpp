@@ -72,3 +72,43 @@ void Controller::addFaculty()
   facultyList.insert(newFacultyNode);
   cout << "Faculty added" << endl;
 }
+
+void Controller::printStudentsTree(TreeNode<Student> *n)
+{
+  if (n != NULL)
+  {
+    if(n->left != NULL)
+    {
+      printStudentsTree(n->left);
+    }
+    n->data.printStudent();
+    if(n->right != NULL)
+    {
+      printStudentsTree(n->right);
+    }
+  }
+  else
+  {
+    cout << "Tree is Empty" << endl;
+  }
+}
+
+void Controller::printFacultyTree(TreeNode<Faculty> *n)
+{
+  if (n != NULL)
+  {
+    if(n->left != NULL)
+    {
+      printFacultyTree(n->left);
+    }
+    n->data.printFaculty();
+    if(n->right != NULL)
+    {
+      printFacultyTree(n->right);
+    }
+  }
+  else
+  {
+    cout << "Tree is Empty" << endl;
+  }
+}

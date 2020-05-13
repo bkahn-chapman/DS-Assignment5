@@ -12,4 +12,6 @@ public:
   ~Controller();
   void addStudent();
   void addFaculty();
+  void printStudentsTree(TreeNode<Student> *n);
+  void printFacultyTree(TreeNode<Faculty> *n);
 };

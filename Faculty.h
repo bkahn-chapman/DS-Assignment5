@@ -25,6 +25,5 @@ class Faculty
     void setlevel(string levelIn);
     string getdep();
     void setdep(string department);
-
-    //printFaculty
+    void printFaculty();
 };
