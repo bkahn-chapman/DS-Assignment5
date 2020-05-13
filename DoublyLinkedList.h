@@ -13,21 +13,21 @@ class DoublyLinkedList
     ~DoublyLinkedList();
 
     void insertFront(T data); //adds data to front of list, dont need for this assignment, can remove
-    void insertBack(T data);
+    void insertBack(T data); //adds data to the end of the list
     T removeFront(); //removes front value
     T removeBack(); //dont need for this assignment, can remove
     int search(T val); //can return value or position of node depending on implementation
     void removeAtPos(int pos); //removes value at given position, not necessary for assignment
     //could implement an insert at position, similar to removeAtPos, also not necessary
 
-    unsigned int getSize();
-    T getFront();
-    bool isEmpty();
-    void printList();
+    unsigned int getSize(); //gets the size of the list
+    T getFront(); //gets the front of the list
+    bool isEmpty(); //checks if the list is empty
+    void printList(); //prints the list
 
-    ListNode<T> *front;
-    unsigned int size;
-    ListNode<T> *back;
+    ListNode<T> *front; //front of the list
+    unsigned int size; //size of the list
+    ListNode<T> *back; //back of the list
 };
 
 template <class T>
@@ -54,18 +54,21 @@ DoublyLinkedList<T>::~DoublyLinkedList()
   }
 }
 
+//gets the size of the list
 template <class T>
 unsigned int DoublyLinkedList<T>::getSize()
 {
   return size;
 }
 
+//checks if the list is empty
 template <class T>
 bool DoublyLinkedList<T>::isEmpty()
 {
   return (size == 0);
 }
 
+//prints the entire list
 template <class T>
 void DoublyLinkedList<T>::printList()
 {
@@ -77,6 +80,7 @@ void DoublyLinkedList<T>::printList()
   }
 }
 
+//inserts something at the front of the list
 template <class T>
 void DoublyLinkedList<T>::insertFront(T dataInput)
 {
@@ -96,6 +100,7 @@ void DoublyLinkedList<T>::insertFront(T dataInput)
   size++;
 }
 
+//inserts something at the back of the list
 template <class T>
 void DoublyLinkedList<T>::insertBack(T dataInput)
 {
@@ -115,6 +120,7 @@ void DoublyLinkedList<T>::insertBack(T dataInput)
   size++;
 }
 
+//removes the value at the front of the list
 template <class T>
 T DoublyLinkedList<T>::removeFront()
 {
@@ -136,6 +142,7 @@ T DoublyLinkedList<T>::removeFront()
   return tempData;
 }
 
+//searches the list for a specific value
 template <class T>
 int DoublyLinkedList<T>::search(T val)
 {
@@ -160,12 +167,14 @@ int DoublyLinkedList<T>::search(T val)
   return position;
 }
 
+//gets the value at the front of the list
 template <class T>
 T DoublyLinkedList<T>::getFront()
 {
   return front->data;
 }
 
+//removes the value at the back of the list
 template <class T>
 T DoublyLinkedList<T>::removeBack()
 {
@@ -178,6 +187,7 @@ T DoublyLinkedList<T>::removeBack()
   return tempData;
 }
 
+//removes the value at a specific position in the list
 template <class T>
 void DoublyLinkedList<T>::removeAtPos(int pos)
 {

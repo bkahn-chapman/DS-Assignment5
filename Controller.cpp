@@ -15,6 +15,7 @@ Controller::~Controller()
 
 }
 
+//adds a new student to the student tree
 void Controller::addStudent()
 {
   string name;
@@ -42,6 +43,7 @@ void Controller::addStudent()
   cout << "Student Added" << endl;
 }
 
+//adds a new faculty to the faculty tree
 void Controller::addFaculty()
 {
   string name;
@@ -75,6 +77,7 @@ void Controller::addFaculty()
   cout << "Faculty added" << endl;
 }
 
+//prints the contents of the tree of students
 void Controller::printStudentsTree(TreeNode<Student> *n)
 {
   if (n != NULL)
@@ -95,6 +98,7 @@ void Controller::printStudentsTree(TreeNode<Student> *n)
   }
 }
 
+//prints the contents of the tree of faculty members
 void Controller::printFacultyTree(TreeNode<Faculty> *n)
 {
   if (n != NULL)
@@ -115,6 +119,7 @@ void Controller::printFacultyTree(TreeNode<Faculty> *n)
   }
 }
 
+//prints the data of a student given a specific id
 void Controller::printStudentID(int val)
 {
   if(studentList.searchNode(val))
@@ -127,6 +132,7 @@ void Controller::printStudentID(int val)
   }
 }
 
+//prints the data of a faculty member given a specific id
 void Controller::printFacultyID(int val)
 {
   if(facultyList.searchNode(val))
@@ -139,6 +145,7 @@ void Controller::printFacultyID(int val)
   }
 }
 
+//prints the advisors of a given student
 void Controller::printAdvisorOfStudent(int val)
 {
   if(studentList.searchNode(val))
@@ -151,6 +158,7 @@ void Controller::printAdvisorOfStudent(int val)
   }
 }
 
+//prints the students of a given advisor
 void Controller::printStudentsOfAdvisor(int val)
 {
   if(facultyList.searchNode(val))
@@ -173,6 +181,7 @@ void Controller::printStudentsOfAdvisor(int val)
   }
 }
 
+//deletes a student from the tree given their id
 void Controller::deleteStudent(int val)
 {
   if(studentList.searchNode(val))
@@ -186,6 +195,7 @@ void Controller::deleteStudent(int val)
   }
 }
 
+//deletes a faculty member given their id
 void Controller::deleteFaculty(int val)
 {
   if(facultyList.searchNode(val))
@@ -199,6 +209,7 @@ void Controller::deleteFaculty(int val)
   }
 }
 
+//changes a student's advisor if their advisor gets deleted
 void Controller::changeAdvisor(int studID, int facID)
 {
   if(studentList.searchNode(studID))
@@ -210,6 +221,8 @@ void Controller::changeAdvisor(int studID, int facID)
     cout << "that student ID does not exist" << endl;
   }
 }
+
+//removes a student from an advisor if the student is deleted
 void Controller::removeAdvisee(int facID, int studID)
 {
   int value = 0;

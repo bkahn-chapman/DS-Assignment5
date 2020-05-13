@@ -11,22 +11,22 @@ class BST
   public:
     BST();
     ~BST();
-    int size = 0;
+    int size = 0; //size of the tree
     //virtual ~BST() -when working with template classes
 
-    void insert(TreeNode<T> *node); //which in this example is also our key
-    bool searchNode(int value); //which in this example is also our key
-    bool deleteNode(int k);
+    void insert(TreeNode<T> *node); //inserts a new node
+    bool searchNode(int value); //searches for a given value in the tree
+    bool deleteNode(int k); //deletes a specific node
 
-    bool isEmpty();
-    TreeNode<T>* getMin();
-    TreeNode<T>* getMax();
+    bool isEmpty(); //checks if the BST is empty
+    TreeNode<T>* getMin(); //gets the smallest value in the BST
+    TreeNode<T>* getMax(); //gets the biggest value in the BST
 
-    TreeNode<T>* getSuccessor(TreeNode<T> *d);
-    void printTree(TreeNode<T> *node);
-    TreeNode<T>* returnData(int val);
+    TreeNode<T>* getSuccessor(TreeNode<T> *d); //gets the sucessor to the inputted value
+    void printTree(TreeNode<T> *node); //prints the values in the tree
+    TreeNode<T>* returnData(int val); //returns the data at a given node
 
-    TreeNode<T> *root;
+    TreeNode<T> *root; //the root of the BST
 };
 
 template <class T>
@@ -41,6 +41,7 @@ BST<T>::~BST()
   //delete root;???
 }
 
+//prints the results of the tree
 template <class T>
 void BST<T>::printTree(TreeNode<T> *node)
 {
@@ -53,6 +54,7 @@ void BST<T>::printTree(TreeNode<T> *node)
   printTree(node->right);
 }
 
+//gets the max value in the tree
 template <class T>
 TreeNode<T>* BST<T>::getMax()
 {
@@ -68,6 +70,7 @@ TreeNode<T>* BST<T>::getMax()
   return curr; //if tree consisted of a number type curr->key or curr->value
 }
 
+//gets the min value in the tree
 template <class T>
 TreeNode<T>* BST<T>::getMin()
 {
@@ -83,12 +86,14 @@ TreeNode<T>* BST<T>::getMin()
   return curr; //if tree consisted of a number type curr->key or curr->value
 }
 
+//checks if the tree is empty
 template <class T>
 bool BST<T>::isEmpty()
 {
   return(root == NULL);
 }
 
+//inserts a value into the tree
 template <class T>
 void BST<T>::insert(TreeNode<T> *node)
 {
@@ -133,6 +138,7 @@ void BST<T>::insert(TreeNode<T> *node)
   size++;
 }
 
+//searches for a specific value in the tree
 template <class T>
 bool BST<T>::searchNode(int value)
 {
@@ -163,6 +169,7 @@ bool BST<T>::searchNode(int value)
   }
 }
 
+//deletes a specific node from the tree
 template <class T>
 bool BST<T>::deleteNode(int k)
 {
@@ -271,6 +278,7 @@ bool BST<T>::deleteNode(int k)
   size--;
 }
 
+//gets the successor to a specific node in the tree
 template <class T>
 TreeNode<T>* BST<T>::getSuccessor(TreeNode<T> *d)
 {
@@ -292,6 +300,7 @@ TreeNode<T>* BST<T>::getSuccessor(TreeNode<T> *d)
   return successor;
 }
 
+//returns the value at a given node
 template <class T>
 TreeNode<T>* BST<T>::returnData(int val)
 {
